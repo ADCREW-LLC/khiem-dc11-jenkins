@@ -19,11 +19,6 @@ pipeline {
         }
     }
 
-    stage('Run terraform code') {
-        steps {
-          //sh "terraform "
-        }
-    }
   }
 }
 
