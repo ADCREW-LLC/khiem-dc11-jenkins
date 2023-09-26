@@ -15,7 +15,7 @@ pipeline {
     stage('Checkout terraform code from the repo') {
         steps {
           checkout scm
-          sh "ls -d $PWD/*"
+          sh "ls -lat"
         }
     }
 
