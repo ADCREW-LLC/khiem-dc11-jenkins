@@ -9,16 +9,9 @@ pipeline {
         git branch: 'main',
           credentialsId: '5b534ff6-d4a6-4744-a848-44359f12c7cb',
           url: 'https://github.com/ADCREW-LLC/khiem-dc11-terraform.git'
+        sh "ls -lat"
       }
     }
-
-    stage('Checkout terraform code from the repo') {
-        steps {
-          checkout scm
-          sh "ls -lat"
-        }
-    }
-
   }
 }
 
