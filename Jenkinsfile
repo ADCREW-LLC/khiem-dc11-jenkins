@@ -12,7 +12,7 @@ pipeline {
         sh "ls -lat"
         sh "terraform fmt"
         sh "terraform init -reconfigure"
-        sh "terraform validate && terraform plan"
+        sh "terraform validate && terraform plan -out=result.txt"
       }
     }
   }
