@@ -10,9 +10,11 @@ pipeline {
           credentialsId: '5b534ff6-d4a6-4744-a848-44359f12c7cb',
           url: 'https://github.com/ADCREW-LLC/khiem-dc11-terraform.git'
         sh "ls -lat"
+        sh "echo 'Comitter is ${GIT_COMMITTER_EMAIL}' "
         sh "terraform fmt"
         sh "terraform init -reconfigure"
-        sh "terraform validate && terraform plan -out=result.txt"
+        sh "terraform validate"
+        sh "terraform plan"
       }
     }
   }
