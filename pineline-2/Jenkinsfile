@@ -1,1 +1,11 @@
 
+pipeline {
+  agent any
+  stages {
+    stage('Run Terraform Code On Pipeline 2') {
+      steps {
+        sh "echo 'Hello! You are on the pineline 2'"
+      }
+    }
+  }
+}
