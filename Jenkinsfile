@@ -10,11 +10,13 @@ pipeline {
           credentialsId: '5b534ff6-d4a6-4744-a848-44359f12c7cb',
           url: 'https://github.com/ADCREW-LLC/khiem-dc11-terraform.git'
         sh "ls -lat"
-        GIT_COMMIT_EMAIL = sh (
-            script: 'git --no-pager show -s --format=\'%ae\'',
-            returnStdout: true
-        ).trim()
-        echo "Git committer email: ${GIT_COMMIT_EMAIL}"
+        script {
+           GIT_COMMIT_EMAIL = sh (
+                script: 'git --no-pager show -s --format=\'%ae\'',
+                returnStdout: true
+            ).trim()
+            echo "Git committer email: ${GIT_COMMIT_EMAIL}"
+        }
         sh "terraform fmt"
         sh "terraform init -reconfigure"
         sh "terraform validate"
