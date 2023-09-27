@@ -11,6 +11,7 @@ pipeline {
           url: 'https://github.com/ADCREW-LLC/khiem-dc11-terraform.git'
         sh "ls -lat"
         sh "terraform fmt && terraform init && terraform validate"
+        sh "terraform plan"
       }
     }
   }
