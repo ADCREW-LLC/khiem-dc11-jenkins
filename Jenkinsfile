@@ -20,9 +20,12 @@ pipeline {
         sh "terraform fmt"
         sh "terraform init -reconfigure"
         sh "terraform validate"
-        sh "terraform plan"
-        emailext body: 'Test Message',
-          subject: 'Test Subject',
+        TERRAFORM_PLAN_OUTPUT = sh (
+            script: 'terraform plan',
+            returnStdout: true
+        ).trim()
+        emailext body: TERRAFORM_PLAN_OUTPUT,
+          subject: 'TERRAFORM_PLAN_OUTPUT',
           to: GIT_COMMIT_EMAIL
       }
     }
