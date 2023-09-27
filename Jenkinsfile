@@ -23,7 +23,7 @@ pipeline {
         sh "terraform plan"
         emailext body: 'Test Message',
           subject: 'Test Subject',
-          to: ${GIT_COMMIT_EMAIL}
+          to: GIT_COMMIT_EMAIL
       }
     }
   }
