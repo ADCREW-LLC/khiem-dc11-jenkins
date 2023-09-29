@@ -4,7 +4,7 @@ pipeline {
     stage('Run Terraform Code On Pipeline 1') {
       steps {
         git branch: 'main',
-          credentialsId: '5b534ff6-d4a6-4744-a848-44359f12c7cb',
+          credentialsId: '1b750a46-d671-426e-88af-8c14d18db341',
           url: 'https://github.com/ADCREW-LLC/khiem-dc11-terraform.git'
         sh "ls -lat"
         script {
