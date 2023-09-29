@@ -9,7 +9,7 @@ pipeline {
         sh "ls -lat"
         sh "terraform fmt"
         sh "terraform init -reconfigure"
-        sh "terraform validate && terraform apply"
+        sh "terraform validate && terraform apply -auto-approve"
       }
     }
   }
