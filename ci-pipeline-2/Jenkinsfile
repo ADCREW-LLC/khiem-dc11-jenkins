@@ -2,7 +2,7 @@ pipeline {
   agent any
   triggers {
     GenericTrigger(
-     causeString: 'Webhook called',
+     causeString: 'This build is called from a webhook! Well done!',
      token: '123456',
      tokenCredentialId: '',
      printContributedVariables: true,
