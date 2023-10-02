@@ -20,7 +20,7 @@ pipeline {
      )
    }
   stages {
-    stage('Run Terraform Code On Pipeline 1') {
+    stage('Run Terraform Code On Pipeline 2') {
       steps {
         git branch: 'main',
           credentialsId: '1b750a46-d671-426e-88af-8c14d18db341',
