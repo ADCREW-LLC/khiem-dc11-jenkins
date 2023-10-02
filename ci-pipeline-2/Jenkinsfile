@@ -2,7 +2,11 @@ pipeline {
   agent any
   triggers {
     GenericTrigger(
-     causeString: 'This build is called from a webhook! Well done!',
+     genericVariables: [
+          [key: 'ref', value: '$.ref'],
+          [key: 'commit_titles', value: '$.commits[*].title']
+      ],
+     causeString: 'Webhook triggered because of $commit_titles in branch $ref',
      token: '123456',
      tokenCredentialId: '',
      printContributedVariables: true,
