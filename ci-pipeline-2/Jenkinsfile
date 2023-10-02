@@ -1,5 +1,11 @@
 pipeline {
   agent any
+  triggers {
+      GenericTrigger(
+          causeString: "Triggered from Webhook",
+          token: "123456"
+      )
+  }
   stages {
     stage('Run Terraform Code On Pipeline 1') {
       steps {
