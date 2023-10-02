@@ -2,18 +2,13 @@ pipeline {
   agent any
   triggers {
     GenericTrigger(
-     genericVariables: [
-      [key: 'ref', value: '$.ref']
-     ],
-     causeString: 'Triggered on $ref',
+     causeString: 'Webhook called',
      token: '123456',
      tokenCredentialId: '',
      printContributedVariables: true,
      printPostContent: true,
      silentResponse: false,
-     shouldNotFlatten: false,
-     regexpFilterText: '$ref',
-     regexpFilterExpression: 'refs/heads/main'
+     shouldNotFlatten: false
     )
   }
   stages {
