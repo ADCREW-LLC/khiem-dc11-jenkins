@@ -9,7 +9,7 @@ pipeline {
              [ key: 'git_sha_statuses_url', value:
          '$.pull_request.statuses_url']      
       ],
-      causeString: 'Triggered from PR: $pr_url
+      causeString: 'Triggered from PR: $pr_url',
       token: '123456',
       printContributedVariables: true,
       printPostContent: true,
