@@ -3,9 +3,9 @@ pipeline {
   triggers {
     GenericTrigger(
      genericVariables: [
-          [key: 'ref', value: '$.ref']
+          [key: 'action', value: '$.action']
       ],
-     causeString: 'Webhook triggered because of in branch $ref',
+     causeString: 'Webhook triggered because of in branch $action',
      token: '123456',
      tokenCredentialId: '',
      printContributedVariables: true,
