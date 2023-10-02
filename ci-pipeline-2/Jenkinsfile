@@ -5,7 +5,7 @@ pipeline {
      genericVariables: [
           [key: 'ref', value: '$.ref']
       ],
-     causeString: "Webhook triggered because of in branch ${ref}",
+     causeString: 'Webhook triggered because of in branch $ref',
      token: '123456',
      tokenCredentialId: '',
      printContributedVariables: true,
