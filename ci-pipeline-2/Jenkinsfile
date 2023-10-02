@@ -12,7 +12,9 @@ pipeline {
      printContributedVariables: true,
      printPostContent: true,
      silentResponse: false,
-     shouldNotFlatten: false
+     shouldNotFlatten: false,
+     regexpFilterText: 'BRANCH: $ref COMMIT_TITLES: $commit_titles END',
+     regexpFilterExpression: "BRANCH: refs/heads/main COMMIT_TITLES .*?(Merge pull request).*? END"
     )
   }
   stages {
