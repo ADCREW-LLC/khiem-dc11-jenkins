@@ -1,24 +1,21 @@
 pipeline {
   agent any
   triggers {
-   GenericTrigger(
-      genericVariables: [
-             [ key: 'action',  value: '$.action'],
-             [ key: 'draft_pr', value: '$.pull_request.draft'],
-             [ key: 'pr_url', value: '$.pull_request.html_url'], 
-             [ key: 'git_sha_statuses_url', value:
-         '$.pull_request.statuses_url']      
-      ],
-      causeString: 'Triggered from PR: $pr_url',
-      token: '123456',
-      printContributedVariables: true,
-      printPostContent: true,
-      silentResponse: false,
-      regexpFilterText: '$action#$draft_pr',
-      regexpFilterExpression:  
-         '(reopened|opened|synchronize|ready_for_review)#(false)'
-     )
-   }
+    GenericTrigger(
+     genericVariables: [
+      [key: 'ref', value: '$.ref']
+     ],
+     causeString: 'Triggered on $ref',
+     token: '123456',
+     tokenCredentialId: '',
+     printContributedVariables: true,
+     printPostContent: true,
+     silentResponse: false,
+     shouldNotFlatten: false,
+     regexpFilterText: '$ref',
+     regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
+    )
+  }
   stages {
     stage('Run Terraform Code On Pipeline 2') {
       steps {
